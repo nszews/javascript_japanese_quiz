@@ -1,0 +1,253 @@
+Japanese Vocabulary Quiz
+Natalie Szews
+
+
+Problem Statement:
+The program will display a word in Japanese, and ask the user for the English 
+definition.
+When the user answers with the correct definition, the program will output that 
+the user answered correctly and move onto the next Japanese term. 
+If the user doesn't enter the correct definition, have the  
+program will ask the user for the definition again. If the user doesn't answer correctly
+the second time, output the correct answer and move onto the next term.
+When the program goes through all the Japanese terms, the 
+program will display a final message telling the user that they're finished with
+how many words were defined, and how many were defined correctly and incorrectly.
+
+
+Nouns: Japanese word, English definition, final message
+
+Verbs: display Japanese word, ask for English definition, 
+output correct answer, output display final message
+
+....................................
+
+
+Defining Diagram
+
+Inputs:
+  englishDefinitionInput
+
+Processing:
+  display japaneseTerm
+  ask for englishDefinitionInput 
+  output correctAnswer
+  output correctMessage
+  output incorrectMessage
+  output finalMessage
+
+Output:
+  correctDefinition
+  correctMessage
+  incorrectMessage 
+  finalMessage
+  
+
+..................................................
+Solution Algorithm
+
+
+
+Initialize correctCounter to 0
+Initialize incorrectCounter to 0
+Initialize japaneseVocabulary
+Initialize promptCounter to 0
+
+CompareAnswersToDefinitions(englishDefinitionInput, secondEnglishDefinitionInput)
+  Initialize answerLimit to 1
+  Initialize englishDefinitionInput
+  
+  Add one to promptCounter
+  IF englishDefinitionInput is left blank THEN
+    Display "Please enter a definition."
+    WHILE wrongAnswerCount is 0, wrongAnswerCount < 2, add one to wrongAnswerCount
+      IF secondEnglishDefinitionInput is correct THEN
+        display "Correct!"
+        add one to correctCounter
+      ELSE
+        display "Sorry, that's not correct. The correct definition of " + 
+                 japaneseTerm + " is " + englishDefinition + "."
+        add one to incorrectCounter
+  ELSE IF englishDefinitionInput is a number THEN
+    display "You entered a number. Please enter a text definition."
+    IF secondEnglishDefinitionInput is correct THEN
+        display "Correct!"
+        add one to correctCounter
+      ELSE
+        display "Sorry, that's not correct. The correct definition of " + 
+                 japaneseTerm + " is " + englishDefinition + "."
+        add one to incorrectCounter
+  ELSE IF englishDefinitionInput is not correct THEN
+    display "Sorry, that's not correct."
+    IF secondEnglishDefinitionInput is correct THEN
+        display "Correct!"
+        add one to correctCounter
+      ELSE
+        display "Sorry, that's not correct. The correct definition of " + 
+                 japaneseTerm + " is " + englishDefinition + "."
+        add one to incorrectCounter    
+  ELSE
+    Display "Correct!"
+    add one to correctCounter
+  ENDIF
+Add one to promptCounter
+END
+
+Main
+  Initialize finalAnswer
+  Initialize numberOfTerms = japaneseVocabulary.length
+  Initialize output
+  Initialize secondUserEnglishDefinition
+  Initialize userEnglishDefinition
+  Initialize wrongAnswerCount to 0
+ 
+  WHILE promptCounter < numberOfTerms
+    Prompt for userEnglishDefinition with, "What is the definition of " + 
+                                           japaneseTerm + "?" 
+    Call CompareAnswersToDefinitions with 
+      userEnglishDefinition
+      
+  ENDWHILE
+
+  Display   "You're finished!" +
+            "You defined " + promptCounter + " Japanese term(s)." +
+            "You defined " + correctCounter + " term(s) correctly." +
+            "You defined " + incorrectCounter + " term(s) incorrectly.";
+END
+..............................................
+
+Test Plans
+
+VARIABLES: englishDefinition 
+
+TEST CASE 1:  
+
+  INPUT VALUES: I, hello, thank you, no, yes
+
+  EXPECTED RESULT: You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+                    
+
+  ACTUAL RESULT:   You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+
+TEST CASE 2:
+
+  INPUT VALUES: I, HELLO, THANK YOU, NO, YES
+
+  EXPECTED RESULT: You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+
+  ACTUAL RESULT:   You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+
+
+TEST CASE 3:
+
+  INPUT VALUES: i, hello, thank you, no, yes
+
+  EXPECTED RESULT: You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+
+  ACTUAL RESULT: You're finished!                    
+                   
+                 You defined 5 Japanese terms.
+                 You defined 5 Japanese terms correctly.
+                 You defined 0 Japanese terms incorrectly.
+  
+TEST CASE 4:
+
+  INPUT VALUES: "___"
+
+  EXPECTED RESULT: Please enter a definition.
+
+  ACTUAL RESULT: Please enter a definition.
+  
+TEST CASE 5:
+
+  INPUT VALUES: 123
+  
+  EXPECTED RESULT: You entered a number. Please enter a text definition.
+  
+  ACTUAL RESULT: You entered a number. Please enter a text definition.
+  
+TEST CASE 6:
+
+  INPUT VALUES: "What is the definition of わたし?" no
+                "What is the definition of わたし?" I
+  
+  EXPECTED RESULT: Sorry, that is not correct. Please try again.
+                   Correct!
+  
+  ACTUAL RESULT: Sorry, that is not correct. Please try again.
+                 Correct!
+  
+TEST CASE 7:
+
+  INPUT VALUES: "What is the definition of わたし?" Yes 
+                "What is the definition of わたし?" Yes 
+  
+  EXPECTED RESULT: Sorry, that is not correct.
+                   Sorry, that is not correct. The definition of わたし is I.
+  
+  ACTUAL RESULT:   Sorry, that is not correct.
+                   Sorry, that is not correct. The definition of わたし is I.
+  
+TEST CASE 8:
+
+  INPUT VALUES: (Define all terms incorrectly every time.)
+                 n,n,n,n,n,n,n,n,n,n
+  
+  EXPECTED RESULT: You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 0 Japanese terms correctly.
+                   You defined 5 Japanese terms incorrectly.
+  
+  ACTUAL RESULT:  You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 0 Japanese terms correctly.
+                   You defined 5 Japanese terms incorrectly.
+
+TEST CASE 9:
+
+  INPUT VALUES: (Define all terms correctly the second time.)
+                 n, I, n, Hello, n, Thank you, n, no, n, yes
+                 
+  
+  EXPECTED RESULT: You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+  
+  ACTUAL RESULT:  You're finished!                    
+                   
+                   You defined 5 Japanese terms.
+                   You defined 5 Japanese terms correctly.
+                   You defined 0 Japanese terms incorrectly.
+
+
+
+
+
+
+
+  
+

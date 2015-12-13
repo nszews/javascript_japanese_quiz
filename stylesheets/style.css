@@ -1,0 +1,87 @@
+body {
+  background-color: #DD5851;
+  background-image: url(../images/straws.png);
+  /* Background pattern obtained with permission from subtlepatterns.com */
+  color: black;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 20pt;
+  height: 1000px;
+}
+
+header {
+  background-color: #DD5851;
+  font-size: 40pt;
+  margin: 40px;
+  padding: 10px;  
+}
+
+h1 {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80px;
+}
+
+h1,h2,h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 25pt;
+}
+
+footer {
+  background-color: #DD5851;
+  bottom: 0;
+  clear: both;
+  display: block;
+  font-size: 12pt;
+  font-style: italic;
+  margin: 40px;
+  padding: 20px;
+  position: absolute;
+  text-align: center; 
+  width: 90%;
+}
+
+footer a {
+  padding:40px;
+}
+
+form ol {
+  list-style: none;
+  margin: 0;
+  padding:0;      
+}
+      
+form ol label {
+  display: inline-block;
+  margin-left: 1%;
+  text-align: left;
+  width: 10%;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none; 
+}
+
+main {
+  background-color:#D2B48C;
+  display: block;
+  height: 800px;
+  margin: 40px;
+  padding: 40px;
+  position: relative;
+  font-size: 12pt;
+}
+
+#wrapper {
+  background-color: #D4CABB;
+  box-shadow: 5px 5px 5px #2E0000;
+  width: 80%;
+  min-width: 960px;
+  max-width: 2048px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  position: relative;
+  
+}
